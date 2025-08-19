@@ -1,22 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://byvmpwig53led"]
+[gd_scene load_steps=5 format=3 uid="uid://byvmpwig53led"]
 
 [ext_resource type="Script" uid="uid://mgosdlg2q6xq" path="res://scenes/levels/level.gd" id="1_b2cq8"]
-[ext_resource type="PackedScene" uid="uid://c234llpjkn0hg" path="res://scenes/Objects/box.tscn" id="4_urvlt"]
+[ext_resource type="Texture2D" uid="uid://bfk86ubk612r3" path="res://graphics/objects/gate.png" id="3_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://cybvoatpexfc3" path="res://scenes/Player/player.tscn" id="4_xb4v1"]
-[ext_resource type="PackedScene" uid="uid://hsinuprns3l1" path="res://scenes/Enemies/drone.tscn" id="5_d4w6o"]
-[ext_resource type="PackedScene" uid="uid://dq7f37pudj67f" path="res://scenes/Objects/bed.tscn" id="5_urvlt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2cq8"]
+size = Vector2(851.351, 257.162)
 
 [node name="Level" type="Node2D"]
+scale = Vector2(0.74, 0.74)
 script = ExtResource("1_b2cq8")
 
-[node name="Bed" parent="." instance=ExtResource("5_urvlt")]
-position = Vector2(1075, 20)
+[node name="Gate" type="StaticBody2D" parent="."]
+position = Vector2(562.162, 693.243)
 
-[node name="Box" parent="." instance=ExtResource("4_urvlt")]
-position = Vector2(1060, 501)
+[node name="Gate" type="Sprite2D" parent="Gate"]
+position = Vector2(122.973, -1128.38)
+texture = ExtResource("3_b2cq8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gate"]
+polygon = PackedVector2Array(-1314.86, -1913.51, 1671.62, -1910.81, 1671.62, -555.405, 1666.22, -514.865, 1641.89, -470.27, 1621.62, -448.648, 1606.76, -425.675, 1589.19, -413.513, 1559.46, -395.946, 1510.81, -367.567, 1463.51, -352.702, 1391.89, -352.702, 612.162, -352.702, 612.162, -620.27, -247.297, -620.27, -247.297, -356.757, -1091.89, -350, -1213.51, -400, -1277.03, -482.432, -1312.16, -560.811)
+
+[node name="entrance" type="Area2D" parent="Gate"]
+position = Vector2(100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/entrance"]
+position = Vector2(85.1353, -420.27)
+shape = SubResource("RectangleShape2D_b2cq8")
 
 [node name="Player" parent="." instance=ExtResource("4_xb4v1")]
-position = Vector2(410, 536)
+position = Vector2(562.162, 693.243)
 
-[node name="Drone" parent="." instance=ExtResource("5_d4w6o")]
-position = Vector2(15, 254)
+[connection signal="body_entered" from="Gate/entrance" to="." method="_on_entrance_body_entered"]
+[connection signal="body_exited" from="Gate/entrance" to="." method="_on_entrance_body_exited"]
