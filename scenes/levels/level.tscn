@@ -1,13 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://byvmpwig53led"]
 
 [ext_resource type="Texture2D" uid="uid://bao15glls7vyj" path="res://icon.svg" id="1_377w7"]
-
-[sub_resource type="GDScript" id="GDScript_377w7"]
-script/source = "extends Sprite2D
-"
+[ext_resource type="Script" uid="uid://bk4t14li7urli" path="res://scenes/levels/logo.gd" id="2_bovvr"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Logo" type="Sprite2D" parent="."]
 texture = ExtResource("1_377w7")
-script = SubResource("GDScript_377w7")
+script = ExtResource("2_bovvr")
