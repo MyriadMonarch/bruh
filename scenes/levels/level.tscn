@@ -5,15 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://cybvoatpexfc3" path="res://scenes/Player/player.tscn" id="4_xb4v1"]
 
 [node name="Level" type="Node2D"]
-scale = Vector2(0.74, 0.74)
 script = ExtResource("1_b2cq8")
 
 [node name="Gate" parent="." instance=ExtResource("3_b2cq8")]
 
 [node name="Player" parent="." instance=ExtResource("4_xb4v1")]
-position = Vector2(562.162, 693.243)
+position = Vector2(558, 522)
+
+[node name="Projectiles" type="Node2D" parent="."]
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]
-[connection signal="grenade_released" from="Player" to="." method="_on_player_grenade_released"]
-[connection signal="laser_released" from="Player" to="." method="_on_player_laser_released"]
+[connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
