@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://byvmpwig53led"]
+[gd_scene load_steps=23 format=3 uid="uid://byvmpwig53led"]
 
 [ext_resource type="Script" uid="uid://mgosdlg2q6xq" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="Texture2D" uid="uid://cexl11htwu5vc" path="res://graphics/ground/stones.png" id="2_urvlt"]
@@ -11,10 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bgyp807aadcrj" path="res://graphics/decals/moss/moss_4.png" id="7_qogh7"]
 [ext_resource type="Texture2D" uid="uid://bt1nm2yhustd1" path="res://graphics/decals/moss/moss_5.png" id="8_8iyoh"]
 [ext_resource type="Texture2D" uid="uid://btrtfin83iev" path="res://graphics/tilesets/outside_walls.png" id="10_mq31s"]
-[ext_resource type="Texture2D" uid="uid://cqtd6aj8ef8cu" path="res://graphics/tilesets/interior.png" id="11_5mi6g"]
 [ext_resource type="Texture2D" uid="uid://qc27pdre4fad" path="res://graphics/decals/blood.png" id="11_7pb6i"]
 [ext_resource type="Texture2D" uid="uid://d4jxx7xdks2t8" path="res://graphics/tilesets/ceiling.png" id="12_b8j7q"]
+[ext_resource type="PackedScene" uid="uid://ba4053lgf0q3p" path="res://scenes/Objects/steamvent.tscn" id="13_5mi6g"]
 [ext_resource type="Texture2D" uid="uid://c7hyjens4n1ec" path="res://graphics/tilesets/soil.png" id="13_qhnmj"]
+[ext_resource type="PackedScene" uid="uid://bwts8kt5qcrui" path="res://scenes/levels/House.tscn" id="15_mq31s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyre1"]
 resource_name = "Walls"
@@ -31,8 +32,11 @@ texture_region_size = Vector2i(390, 390)
 2:2/0 = 0
 0:3/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5mi6g"]
+load_path = "res://.godot/imported/interior.png-9ac83108a90b70850d04753a14d2e1af.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lp2ca"]
-texture = ExtResource("11_5mi6g")
+texture = SubResource("CompressedTexture2D_5mi6g")
 texture_region_size = Vector2i(390, 390)
 0:0/0 = 0
 1:0/0 = 0
@@ -222,10 +226,22 @@ texture = ExtResource("11_7pb6i")
 
 [node name="Gate" parent="." instance=ExtResource("3_b2cq8")]
 
+[node name="steamvent" parent="." instance=ExtResource("13_5mi6g")]
+position = Vector2(-122, 501)
+
+[node name="House" parent="." instance=ExtResource("15_mq31s")]
+position = Vector2(-2431, 3965)
+rotation = -2.79253
+
 [node name="Player" parent="." instance=ExtResource("4_xb4v1")]
 position = Vector2(558, 522)
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.447145, 0.552241, 0.478068, 1)
+energy = 1.01
+blend_mode = 1
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]

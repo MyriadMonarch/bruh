@@ -19,11 +19,12 @@ func _process(_delta):
 	#laser shoting
 	if Input.is_action_pressed("Laser") and can_laser:
 		var laser_marker = $LaserStartPosition.get_children()
-		
+		$GPUParticles2D.emitting = true
 		var selected_LASER = laser_marker[randi() % laser_marker.size()]
 		can_laser = false #laser false
 		$Laser.start() #cooldown timer
 		laser.emit(selected_LASER.global_position, player_direction)
+		
 		 # signal for level so that laser can be released
 	
 	if Input.is_action_pressed("Grenade") and can_grenade:
