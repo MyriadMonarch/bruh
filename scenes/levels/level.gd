@@ -9,11 +9,10 @@ func _on_player_grenade(pos, player_direction):
 	$Projectiles.add_child(grenade)
 
 
-func _on_player_laser(pos, player_direction):
-	var laser = laser_scene.instantiate() 
-	var speed = 500
-	laser.global_position = pos
-	var direction = player_direction*speed
-	position += speed*direction
+func _on_player_laser(pos, direction):
+	var laser = laser_scene.instantiate() as Area2D
+	laser.position = pos
+	laser.rotation_degrees = rad_to_deg(direction.angle())
+	laser.direction = direction
 	$Projectiles.add_child(laser)
 	
