@@ -41,5 +41,10 @@ position = Vector2(125, 11)
 [node name="Marker2D4" type="Marker2D" parent="GrenadeStartPosition"]
 position = Vector2(132, 20)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
 [connection signal="timeout" from="Laser" to="." method="_on_laser_timeout"]
 [connection signal="timeout" from="Grenade" to="." method="_on_grenade_timeout"]
