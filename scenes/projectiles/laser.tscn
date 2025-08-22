@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnj1mvy4uthw"]
+[gd_scene load_steps=6 format=3 uid="uid://cnj1mvy4uthw"]
 
 [ext_resource type="Script" uid="uid://iuqwj8l8ylpg" path="res://scenes/projectiles/laser.gd" id="1_e6ads"]
 [ext_resource type="Texture2D" uid="uid://dqayql7r3kyhw" path="res://graphics/projectiles/blue.png" id="1_rlgyd"]
+[ext_resource type="Texture2D" uid="uid://ovdh3bp1bmer" path="res://graphics/decals/white.png" id="3_cwxws"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e6ads"]
 radius = 6.0
@@ -28,3 +29,14 @@ texture = ExtResource("1_rlgyd")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_e6ads")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(160, -3)
+scale = Vector2(1.65, 0.855)
+energy = 16.0
+texture = ExtResource("3_cwxws")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

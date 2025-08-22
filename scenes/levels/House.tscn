@@ -1,5 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://bwts8kt5qcrui"]
+[gd_scene load_steps=37 format=3 uid="uid://bwts8kt5qcrui"]
 
+[ext_resource type="Script" uid="uid://cn3bnqtjqsr50" path="res://scenes/levels/house.gd" id="1_rus4p"]
 [ext_resource type="Texture2D" uid="uid://b7xffdc84demr" path="res://graphics/tilesets/interior.png" id="1_uvjml"]
 [ext_resource type="PackedScene" uid="uid://bsn8agwmb8hrs" path="res://scenes/Objects/simple_light.tscn" id="2_uvjml"]
 [ext_resource type="PackedScene" uid="uid://din2btntl2sxx" path="res://scenes/Objects/wall_lamp.tscn" id="3_187s0"]
@@ -211,6 +212,7 @@ sources/0 = SubResource("TileSetAtlasSource_55lta")
 
 [node name="House" type="Area2D"]
 collision_layer = 16
+script = ExtResource("1_rus4p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_187s0")
@@ -232,3 +234,6 @@ rotation = -1.5708
 [node name="SimpleLight" parent="." instance=ExtResource("2_uvjml")]
 position = Vector2(-1272, -1025)
 rotation = -1.5708
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

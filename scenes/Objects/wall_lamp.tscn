@@ -14,6 +14,8 @@ polygon = PackedVector2Array(-234, -19, -219, -33, -151, -35, -25, -36, 30, -35,
 polygon = PackedVector2Array(-215, -11, -213, -8, -213, -5, -213, 4, -213, 46, -228, 38, -228, 3, -225, 1, -225, -5, -223, -9, -219, -12)
 
 [node name="WallLamp" type="Area2D"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -25,7 +27,7 @@ texture = ExtResource("1_5fep4")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(8, 8)
-color = Color(0.447059, 0.0392157, 0.109804, 1)
+color = Color(0.85098, 0.247059, 0.141176, 1)
 energy = 1.77
 shadow_enabled = true
 shadow_color = Color(0.334776, 0.0876159, 0, 0)
