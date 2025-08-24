@@ -15,6 +15,36 @@ radius = 23.0217
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b7x1w"]
 polygon = PackedVector2Array(-5, -22, 0, -22, 2, -22, 4, -22, 7, -21, 11, -19, 16, -16, 19, -12, 21, -10, 22, -10, 23, -7, 23, -6, 23, -6, 22, -5, 23, -3, 23, -1, 23, 2, 22, 7, 21, 10, 19, 13, 15, 17, 13, 19, 13, 20, 7, 22, 2, 23, -4, 22, -11, 20, -17, 16, -19.2199, 12.6701, -20, 13, -23, 7, -21.8899, 5.99552, -23, 1, -22, -7, -20, -12, -17, -16, -15, -17, -14, -18, -14, -19, -14, -20, -11, -22, -10, -21)
 
+[sub_resource type="Animation" id="Animation_2die0"]
+resource_name = "Blinking"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33, 0.333333, 0.66, 1, 1.33, 1.66, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 16.0, 16.0, 0.0, 16.0, 0.0, 16.0, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_oqjs3"]
 resource_name = "Explosion"
 length = 2.3
@@ -119,36 +149,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_2die0"]
-resource_name = "Blinking"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PointLight2D:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33, 0.333333, 0.66, 1, 1.33, 1.66, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 16.0, 16.0, 0.0, 16.0, 0.0, 16.0, 0.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"explode"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2die0"]

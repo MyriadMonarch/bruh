@@ -1,4 +1,5 @@
 extends Node2D
+class_name LevelParent
 
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
@@ -17,6 +18,7 @@ func _on_player_laser(pos, direction):
 	$Projectiles.add_child(laser)
 	
 	
+	
 
 
 func _on_house_player_entered():
@@ -32,12 +34,3 @@ func _on_house_player_exited() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($Player/Camera2D2,"zoom",Vector2(.5,.5),2)
 	print($Player/Camera2D2.zoom) # Replace with function body.
-
-
-func _on_gate_player_entered_gate(_body) :
-	var tween = create_tween() 
-	tween.tween_property($Player,"speed",0,.5)
-
-
-func _on_gate_player_exited_gate(_body):
-	pass # Replace with function body.
