@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://b32r31n2osdeg"]
+[gd_scene load_steps=13 format=4 uid="uid://b32r31n2osdeg"]
 
 [ext_resource type="PackedScene" uid="uid://byvmpwig53led" path="res://scenes/levels/level.tscn" id="1_8ht0b"]
 [ext_resource type="TileSet" uid="uid://vwatdh5cqxf7" path="res://scenes/levels/House.tres" id="2_b1uqu"]
 [ext_resource type="Texture2D" uid="uid://c4tosou3q7n1f" path="res://graphics/ground/dirt.png" id="2_n4crx"]
+[ext_resource type="Script" uid="uid://dp5ica5p50xiq" path="res://scenes/levels/inside.gd" id="2_tkhku"]
 [ext_resource type="Texture2D" uid="uid://dcwsk4s2dx78p" path="res://graphics/lights/textures/circle.png" id="4_0kuad"]
 [ext_resource type="PackedScene" uid="uid://c4kbgmuj80fi6" path="res://scenes/Objects/light_fan.tscn" id="4_71x7e"]
 [ext_resource type="Texture2D" uid="uid://kxog8iskbf0w" path="res://graphics/lights/overlays/hole.png" id="4_j5d1l"]
@@ -11,7 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://din2btntl2sxx" path="res://scenes/Objects/wall_lamp.tscn" id="8_x0st6"]
 [ext_resource type="PackedScene" uid="uid://bsn8agwmb8hrs" path="res://scenes/Objects/simple_light.tscn" id="9_0kuad"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkhku"]
+size = Vector2(346, 733)
+
 [node name="inside" instance=ExtResource("1_8ht0b")]
+script = ExtResource("2_tkhku")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture_repeat = 2
@@ -152,7 +157,6 @@ position = Vector2(-505, 2178)
 [node name="WallLamp2" parent="Lights" index="18" instance=ExtResource("8_x0st6")]
 position = Vector2(1312, 1385)
 rotation = 1.54523
-scale = Vector2(1, 1)
 
 [node name="WallLamp3" parent="Lights" index="19" instance=ExtResource("8_x0st6")]
 position = Vector2(2958, -143)
@@ -169,17 +173,14 @@ rotation = -0.00937345
 [node name="SimpleLight7" parent="Lights" index="22" instance=ExtResource("9_0kuad")]
 position = Vector2(-3949, -252)
 rotation = -3.11796
-scale = Vector2(1, 1)
 
 [node name="SimpleLight2" parent="Lights" index="23" instance=ExtResource("9_0kuad")]
 position = Vector2(3846, 1291)
 rotation = -3.11796
-scale = Vector2(1, 1)
 
 [node name="SimpleLight3" parent="Lights" index="24" instance=ExtResource("9_0kuad")]
 position = Vector2(4843, 1287)
 rotation = -3.11796
-scale = Vector2(1, 1)
 
 [node name="SimpleLight4" parent="Lights" index="25" instance=ExtResource("9_0kuad")]
 position = Vector2(3279, 943)
@@ -194,5 +195,12 @@ position = Vector2(-2201, -672)
 rotation = 1.5708
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="6"]
-color = Color(0.47223, 0.583867, 0.808399, 0.792157)
+visible = false
+color = Color(0.818745, 0.862736, 0.947839, 0.792157)
 blend_mode = 1
+
+[node name="ExitGateArea" type="Area2D" parent="." index="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
+position = Vector2(5553, 0.5)
+shape = SubResource("RectangleShape2D_tkhku")

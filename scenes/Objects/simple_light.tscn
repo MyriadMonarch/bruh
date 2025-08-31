@@ -24,7 +24,7 @@ texture = ExtResource("1_pmyaf")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.454258, 0.754018, 0.981251, 1)
-energy = 6.25
+energy = 7.87
 shadow_enabled = true
 shadow_color = Color(0.0665805, 0.159828, 0.336718, 0.0431373)
 shadow_filter = 1
