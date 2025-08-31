@@ -291,4 +291,10 @@ position = Vector2(-2245, 3154)
 position = Vector2(-187, -173)
 metadata/_edit_lock_ = true
 
+[node name="Player" parent="." index="3"]
+position = Vector2(335, 189)
+
+[node name="Camera2D2" parent="Player" index="8"]
+metadata/_edit_group_ = true
+
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
