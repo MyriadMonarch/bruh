@@ -7,7 +7,6 @@ signal grenade(pos, direction)
 @export var max_speed:int = 500
 var speed:int = max_speed
 
-
 func _process(_delta):
 	#player movement
 	var direction = Input.get_vector("Left","Right","Up","Down")
@@ -33,24 +32,16 @@ func _process(_delta):
 		
 		 # signal for level so that laser can be released
 	
-	if Input.is_action_pressed("Grenade") and can_grenade:
+	if Input.is_action_pressed("Grenade") and can_grenade and Globals.grenade_amount > 0:
+		Globals.grenade_amount -= 1
 		var pos = $GrenadeStartPosition.get_children()[0].global_position
-
-		
-		
 		can_grenade = false #grenade false
 		$Grenade.start() #cooldown timer
-		
 		print(player_direction)
 		grenade.emit(pos, player_direction) # signal for level
-	
-
-
-
 
 func _on_grenade_timeout():
 	can_grenade = true # Replace with function body.
-
 
 func _on_laser_timeout():
 	can_laser = true # Replace with function body.
