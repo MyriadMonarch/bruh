@@ -5,6 +5,7 @@ var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
 
+
 func _on_player_grenade(pos, player_direction):
 	$UI.update_grenade_text()
 	var grenade = grenade_scene.instantiate() as RigidBody2D
@@ -31,3 +32,8 @@ func _on_house_player_exited() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($Player/Camera2D2,"zoom",Vector2(.5,.5),2)
 	print($Player/Camera2D2.zoom) # Replace with function body.
+
+
+func _on_player_update_stats() -> void:
+	$UI.update_grenade_text()
+	$UI.update_laser_text()

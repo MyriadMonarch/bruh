@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://b32r31n2osdeg"]
+[gd_scene load_steps=13 format=4 uid="uid://b32r31n2osdeg"]
 
 [ext_resource type="PackedScene" uid="uid://byvmpwig53led" path="res://scenes/levels/level.tscn" id="1_8ht0b"]
 [ext_resource type="TileSet" uid="uid://vwatdh5cqxf7" path="res://scenes/levels/House.tres" id="2_b1uqu"]
 [ext_resource type="Texture2D" uid="uid://c4tosou3q7n1f" path="res://graphics/ground/dirt.png" id="2_n4crx"]
 [ext_resource type="Script" uid="uid://dp5ica5p50xiq" path="res://scenes/levels/inside.gd" id="2_tkhku"]
-[ext_resource type="PackedScene" uid="uid://d2x3cixmasyro" path="res://scenes/levels/outside.tscn" id="3_7r4nv"]
 [ext_resource type="Texture2D" uid="uid://dcwsk4s2dx78p" path="res://graphics/lights/textures/circle.png" id="4_0kuad"]
 [ext_resource type="PackedScene" uid="uid://c4kbgmuj80fi6" path="res://scenes/Objects/light_fan.tscn" id="4_71x7e"]
 [ext_resource type="Texture2D" uid="uid://kxog8iskbf0w" path="res://graphics/lights/overlays/hole.png" id="4_j5d1l"]
@@ -18,7 +17,6 @@ size = Vector2(346, 733)
 
 [node name="inside" instance=ExtResource("1_8ht0b")]
 script = ExtResource("2_tkhku")
-outside_level_scene = ExtResource("3_7r4nv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 texture_repeat = 2

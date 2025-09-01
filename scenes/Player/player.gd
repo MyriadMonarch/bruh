@@ -1,6 +1,8 @@
 extends CharacterBody2D
 signal laser(pos, direction)
 signal grenade(pos, direction)
+signal update_stats
+
 @export var can_laser: bool = true
 @export var can_grenade: bool = true
 
@@ -32,6 +34,8 @@ func _process(_delta):
 		
 		 # signal for level so that laser can be released
 	
+	
+	
 	if Input.is_action_pressed("Grenade") and can_grenade and Globals.grenade_amount > 0:
 		Globals.grenade_amount -= 1
 		var pos = $GrenadeStartPosition.get_children()[0].global_position
@@ -39,9 +43,22 @@ func _process(_delta):
 		$Grenade.start() #cooldown timer
 		print(player_direction)
 		grenade.emit(pos, player_direction) # signal for level
+	
+	
+	
 
 func _on_grenade_timeout():
 	can_grenade = true # Replace with function body.
 
 func _on_laser_timeout():
 	can_laser = true # Replace with function body.
+
+func add_item(type:String)->void:
+	if type == 'laser':
+		Globals.laser_amount += 5
+	if type == 'grenade':
+		Globals.grenade_amount += 2
+	if type == 'health':
+		Globals.health += 10
+
+	update_stats.emit()
