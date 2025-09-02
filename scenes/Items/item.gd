@@ -12,11 +12,14 @@ func _ready() -> void:
 	if type =='laser':
 		$Sprite2D.modulate = Color(0,0,1,1)
 
-func _process(delta: float) -> void:
+func _process(delta):
 	rotation += rotation_speed * delta
 	
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body):
 	body.add_item(type)
+	if type == "health":
+		
+		Globals.health += 10
 	queue_free()

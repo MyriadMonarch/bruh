@@ -43,9 +43,7 @@ func _process(_delta):
 		$Grenade.start() #cooldown timer
 		print(player_direction)
 		grenade.emit(pos, player_direction) # signal for level
-	
-	
-	
+
 
 func _on_grenade_timeout():
 	can_grenade = true # Replace with function body.
@@ -58,7 +56,5 @@ func add_item(type:String)->void:
 		Globals.laser_amount += 5
 	if type == 'grenade':
 		Globals.grenade_amount += 2
-	if type == 'health':
-		Globals.health += 10
-
+	
 	update_stats.emit()
