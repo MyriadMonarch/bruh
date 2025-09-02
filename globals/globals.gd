@@ -2,7 +2,7 @@ extends Node
 
 signal stat_change
 
-var _health : int = 20
+var _health : int = 100
 var _grenade_amount:int=5
 var _laser_amount :int=20
 
