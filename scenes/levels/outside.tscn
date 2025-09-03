@@ -186,6 +186,7 @@ region_enabled = true
 region_rect = Rect2(-7773, -1928, 16000, 10000)
 
 [node name="TileMap2" type="TileMap" parent="Ground" index="1"]
+visibility_layer = 15
 tile_set = SubResource("TileSet_noh41")
 format = 2
 layer_0/name = "soil"
@@ -294,24 +295,28 @@ position = Vector2(-2245, 3154)
 position = Vector2(-187, -173)
 metadata/_edit_lock_ = true
 
-[node name="Item" parent="." index="3" instance=ExtResource("18_bjulg")]
+[node name="Box" parent="." index="2" instance=ExtResource("19_4lnny")]
+position = Vector2(1432, 304)
+rotation = 3.14159
+collision_layer = 1
+collision_mask = 1
+
+[node name="Item" parent="." index="4" instance=ExtResource("18_bjulg")]
 position = Vector2(-50, 254)
 
-[node name="Player" parent="." index="4"]
-position = Vector2(335, 189)
+[node name="Toilet" parent="." index="5" instance=ExtResource("20_cnio0")]
+position = Vector2(993, 493)
+rotation = 1.5708
+collision_layer = 1
+collision_mask = 1
+
+[node name="Player" parent="." index="7"]
+position = Vector2(1406, 286)
 
 [node name="Camera2D2" parent="Player" index="8"]
 metadata/_edit_group_ = true
 
-[node name="Lights" parent="." index="5"]
+[node name="Lights" parent="." index="8"]
 metadata/_edit_lock_ = true
-
-[node name="Box" parent="." index="7" instance=ExtResource("19_4lnny")]
-position = Vector2(1432, 304)
-rotation = 3.14159
-
-[node name="Toilet" parent="." index="8" instance=ExtResource("20_cnio0")]
-position = Vector2(993, 493)
-rotation = 1.5708
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
