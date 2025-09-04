@@ -14,23 +14,23 @@ polygon = PackedVector2Array(76, 15, 76, -5, 73, -9, 70, -11, 68, -11, -68, -11,
 collision_layer = 4
 collision_mask = 11
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_durn7")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
 texture = ExtResource("1_pmyaf")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_durn7")
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.454258, 0.754018, 0.981251, 1)
-energy = 7.87
+energy = 6.0
 shadow_enabled = true
 shadow_color = Color(0.0665805, 0.159828, 0.336718, 0.0431373)
 shadow_filter = 1
 shadow_filter_smooth = 3.6
 texture = ExtResource("2_durn7")
-texture_scale = 2.0
+texture_scale = 1.18
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_durn7")

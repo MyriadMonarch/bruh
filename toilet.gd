@@ -3,11 +3,9 @@ extends ItemContainer
 func hit():
 	if not opened:
 		$LidSprite.hide()
+		var pos = $SpawnPosition/Marker2D.global_position
+		open.emit(pos, current_direction)
 		
-		for i in range(5):
-			var pos = $SpawnPosition.get_child(randi()%$SpawnPosition.get_child_count()).global_position
-			open.emit(pos, current_direction)
 		opened = true
 	
 	
-#spawn at hit at toilet

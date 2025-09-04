@@ -20,7 +20,6 @@ func _process(_delta):
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	#laser shoting
 	if Input.is_action_pressed("Laser") and can_laser and Globals.laser_amount > 0:
-		Globals.laser_amount -= 1
 		
 		var laser_marker = $LaserStartPosition.get_children()
 		$GPUParticles2D.emitting = true
@@ -33,7 +32,6 @@ func _process(_delta):
 		 # signal for level so that laser can be released
 	
 	if Input.is_action_pressed("Grenade") and can_grenade and Globals.grenade_amount > 0:
-		Globals.grenade_amount -= 1
 		var pos = $GrenadeStartPosition.get_children()[0].global_position
 		can_grenade = false #grenade false
 		$Grenade.start() #cooldown timer

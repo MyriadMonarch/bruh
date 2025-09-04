@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2x3cixmasyro"]
+[gd_scene load_steps=34 format=3 uid="uid://d2x3cixmasyro"]
 
 [ext_resource type="PackedScene" uid="uid://byvmpwig53led" path="res://scenes/levels/level.tscn" id="1_2s4ok"]
 [ext_resource type="Script" uid="uid://dpth3d6lpis4m" path="res://scenes/levels/outside.gd" id="2_uaeil"]
@@ -17,9 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://ba4053lgf0q3p" path="res://scenes/Objects/steamvent.tscn" id="14_4jce7"]
 [ext_resource type="PackedScene" uid="uid://c4kbgmuj80fi6" path="res://scenes/Objects/light_fan.tscn" id="15_4602a"]
 [ext_resource type="PackedScene" uid="uid://cj5xb87u5sta7" path="res://scenes/Objects/gate.tscn" id="16_teddg"]
-[ext_resource type="PackedScene" uid="uid://dcv2uuyyjvuah" path="res://scenes/Items/item.tscn" id="18_bjulg"]
-[ext_resource type="PackedScene" uid="uid://y5d2adky14i8" path="res://scenes/Objects/box.tscn" id="19_4lnny"]
-[ext_resource type="PackedScene" uid="uid://cku3w4watauye" path="res://scenes/Objects/toilet.tscn" id="20_cnio0"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b8j7q"]
 polygon = PackedVector2Array(-66, -64, 57, -64, 57, -59, 195, -59, 195, 59, 57, 58, 55, 63, -67, 63)
@@ -295,28 +292,17 @@ position = Vector2(-2245, 3154)
 position = Vector2(-187, -173)
 metadata/_edit_lock_ = true
 
-[node name="Box" parent="." index="2" instance=ExtResource("19_4lnny")]
-position = Vector2(1432, 304)
-rotation = 3.14159
-collision_layer = 1
-collision_mask = 1
-
-[node name="Item" parent="." index="4" instance=ExtResource("18_bjulg")]
-position = Vector2(-50, 254)
-
-[node name="Toilet" parent="." index="5" instance=ExtResource("20_cnio0")]
-position = Vector2(993, 493)
-rotation = 1.5708
-collision_layer = 1
-collision_mask = 1
-
-[node name="Player" parent="." index="7"]
-position = Vector2(1406, 286)
+[node name="Player" parent="." index="4"]
+position = Vector2(340, 174)
+rotation = -4.71239
+metadata/_edit_group_ = true
 
 [node name="Camera2D2" parent="Player" index="8"]
 metadata/_edit_group_ = true
 
-[node name="Lights" parent="." index="8"]
+[node name="Lights" parent="." index="5"]
 metadata/_edit_lock_ = true
 
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]

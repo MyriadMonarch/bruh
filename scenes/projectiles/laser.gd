@@ -12,6 +12,8 @@ func _process(delta):
 func _on_body_entered(body):
 	if "hit" in body:
 		body.hit()
+		
+	print(body.name)
 	queue_free()
 
 func _on_timer_timeout() -> void:

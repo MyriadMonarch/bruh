@@ -13,6 +13,8 @@ script = ExtResource("1_b2cq8")
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[node name="Lights" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("4_xb4v1")]
 position = Vector2(558, 522)
 
@@ -20,8 +22,6 @@ position = Vector2(558, 522)
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
-
-[node name="Lights" type="Node2D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("3_b2cq8")]
 

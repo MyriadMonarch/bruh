@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcwsk4s2dx78p" path="res://graphics/lights/textures/circle.png" id="2_7nshb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uiao"]
-radius = 79.0
+radius = 83.0
 height = 866.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5wh1n"]
@@ -17,22 +17,22 @@ polygon = PackedVector2Array(-215, -11, -213, -8, -213, -5, -213, 4, -213, 46, -
 collision_layer = 4
 collision_mask = 11
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_0uiao")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(505, 156)
 texture = ExtResource("1_5fep4")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0uiao")
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(8, 8)
+scale = Vector2(0.707985, 0.668867)
 color = Color(0.50303, 0.339017, 0.983427, 1)
-energy = 3.19
+energy = 2.5
 shadow_enabled = true
 shadow_color = Color(0.334776, 0.0876159, 0, 0)
 texture = ExtResource("2_7nshb")
-texture_scale = 15.53
+texture_scale = 5.98
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_5wh1n")

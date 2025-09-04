@@ -13,13 +13,17 @@ height = 230.0
 script = ExtResource("2_ie34i")
 
 [node name="BaseSprite" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_ekwh7")
 
 [node name="LidSprite" parent="." index="1"]
 position = Vector2(2, 15)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_ie34i")
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 position = Vector2(1, 9)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("CapsuleShape2D_qdry6")
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPosition" index="0"]
