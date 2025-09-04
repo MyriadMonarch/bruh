@@ -15,7 +15,7 @@ func _ready() -> void:
 func on_container_opened(pos, direction):
 	var item = item_scene.instantiate()
 	item.position = pos
-	item.velocity = direction.normalized()
+	item.direction = direction
 	$Items.call_deferred('add_child',item)
 	
 

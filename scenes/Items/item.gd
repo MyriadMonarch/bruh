@@ -3,7 +3,8 @@ extends Area2D
 @export var rotation_speed:int = 4
 var available_option = ['health','health','grenade','grenade','grenade','grenade','laser','laser','laser','laser']
 var type = available_option[randi()%len(available_option)]
-var velocity:Vector2 = Vector2.ONE
+var direction:Vector2
+var distance:int = randf_range(150,250)
 
 
 func _ready() -> void:
@@ -13,14 +14,10 @@ func _ready() -> void:
 		$Sprite2D.modulate = Color(1,0,0,1)
 	if type =='laser':
 		$Sprite2D.modulate = Color(0,0,1,1)
-	move()
-	
+	var target_pos = position+direction*distance
+	var movement_tween = create_tween()
+	movement_tween.tween_property(self,"position",target_pos,0.5)
 
-func move():
-	position+=velocity*rotation_speed
-	$Timer.start()
-	await $Timer.timeout
-	return
 
 func _process(delta):
 	rotation += rotation_speed * delta
