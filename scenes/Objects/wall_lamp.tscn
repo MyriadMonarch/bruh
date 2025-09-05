@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://din2btntl2sxx"]
+[gd_scene load_steps=5 format=3 uid="uid://din2btntl2sxx"]
 
 [ext_resource type="Texture2D" uid="uid://c1gnhq6gvggtb" path="res://graphics/objects/wall_lamp.png" id="1_5fep4"]
 [ext_resource type="Texture2D" uid="uid://dcwsk4s2dx78p" path="res://graphics/lights/textures/circle.png" id="2_7nshb"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0uiao"]
-radius = 83.0
-height = 866.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5wh1n"]
 polygon = PackedVector2Array(-234, -19, -219, -33, -151, -35, -25, -36, 30, -35, 89, -37, 223, -37, 228, -25, 226, -17, 391, -17, 363, -49, 317, -74, 267, -83, -122.031, -81.5879, -284, -81, -321, -72, -349, -63, -369, -44, -388, -22)
@@ -13,17 +9,12 @@ polygon = PackedVector2Array(-234, -19, -219, -33, -151, -35, -25, -36, 30, -35,
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5fep4"]
 polygon = PackedVector2Array(-215, -11, -213, -8, -213, -5, -213, 4, -213, 46, -228, 38, -228, 3, -225, 1, -225, -5, -223, -9, -219, -12)
 
-[node name="WallLamp" type="Area2D"]
-collision_layer = 4
-collision_mask = 11
+[node name="WallLamp" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(505, 156)
 texture = ExtResource("1_5fep4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_0uiao")
+region_enabled = true
+region_rect = Rect2(0, 0, 854, 179)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(0.707985, 0.668867)
@@ -33,14 +24,20 @@ shadow_enabled = true
 shadow_color = Color(0.334776, 0.0876159, 0, 0)
 texture = ExtResource("2_7nshb")
 texture_scale = 5.98
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-9, 0)
 occluder = SubResource("OccluderPolygon2D_5wh1n")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(-9, -11)
 occluder = SubResource("OccluderPolygon2D_5fep4")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
-position = Vector2(-3.58, 1.255)
+position = Vector2(-16, -4)
 scale = Vector2(-1, 1)
 occluder = SubResource("OccluderPolygon2D_5fep4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-292, -88, -309, -83, -333, -76, -355, -67, -369, -57, -385, -41, -404, -18, -424, 10, -409, 53, -404, 61, -399, 64, -391, 65, -271, 67, -265, 71, -265, 76, -251, 77, -247, 77, -242, 73, -233, 72, 219, 71, 225, 74, 229, 76, 245, 75, 252, 72, 261, 71, 370, 70, 385, 65, 390, 58, 394, 48, 410, 11, 370, -44, 330, -73, 296, -84, 276, -87, 267, -89)

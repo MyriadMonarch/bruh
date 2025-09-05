@@ -10,9 +10,7 @@ height = 200.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_durn7"]
 polygon = PackedVector2Array(76, 15, 76, -5, 73, -9, 70, -11, 68, -11, -68, -11, -71, -9, -73, -7, -74, -4, -75, 0, -75, 3, -75, 10, -76, 14, -76, 16, -81, 16, -86, 15, -91, 14, -95, 11, -97, 7, -98, 5, -98, 0, -98, -4, -96, -7, -93, -10, -88, -13, -83, -14, -81, -16, -73, -17, -68, -17, 79, -17, 82, -16, 85, -14, 88, -14, 91, -13, 92, -11, 95, -9, 96, -6, 97, -4, 98, -2, 98, 0, 98, 2, 98, 4, 97, 5, 96, 8, 95, 9, 93, 11, 90, 13, 87, 15, 84, 16, 83, 16, 80, 16, 78, 16)
 
-[node name="SimpleLight" type="Area2D"]
-collision_layer = 4
-collision_mask = 11
+[node name="SimplaeLight" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1)

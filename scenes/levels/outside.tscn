@@ -175,6 +175,11 @@ sources/3 = SubResource("TileSetAtlasSource_ra0xe")
 [node name="outside" instance=ExtResource("1_2s4ok")]
 script = ExtResource("2_uaeil")
 
+[node name="Gate" parent="." index="1" instance=ExtResource("16_teddg")]
+z_index = 1
+position = Vector2(-187, -173)
+metadata/_edit_lock_ = true
+
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
 position = Vector2(1135, 1004)
@@ -288,21 +293,17 @@ position = Vector2(-122, 501)
 [node name="LightFanAnimation" parent="Ground" index="25" instance=ExtResource("15_4602a")]
 position = Vector2(-2245, 3154)
 
-[node name="Gate" parent="." index="1" instance=ExtResource("16_teddg")]
-position = Vector2(-187, -173)
+[node name="Lights" parent="." index="5"]
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." index="4"]
-position = Vector2(340, 174)
+[node name="Player" parent="." index="6"]
+position = Vector2(336, 254)
 rotation = -4.71239
 metadata/_edit_group_ = true
 
 [node name="Camera2D2" parent="Player" index="8"]
 metadata/_edit_group_ = true
 
-[node name="Lights" parent="." index="5"]
-metadata/_edit_lock_ = true
-
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
-[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
